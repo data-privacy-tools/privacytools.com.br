@@ -13,7 +13,7 @@ export default {
             'name': 'Name',
             'message': 'Message',
             'know-more': 'Know More',
-            'banner.heading': 'PT THE COMPLIANCE PLATFORM FOR PRIVACY-FIRST COMPANIES',
+            'banner.heading': 'Services for GDPR/LGPD requirements.',
             'banner.body': 'Thanks to our talented and prolific developer community, we’ve been able to highlight a bunch of great examples and tutorials on our Expo blog. Here’s a running collection, in no particular order.',
             'banner.button': 'Saiba Mais',
             'tools.section.title': 'Digital Security Journey',

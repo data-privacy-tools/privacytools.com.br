@@ -2,6 +2,7 @@
   "name": "privacy-tools",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/data-privacy-tools/privacytools.github.io",
   "dependencies": {
     "antd": "^3.18.1",
     "fontfaceobserver": "^2.1.0",
