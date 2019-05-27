@@ -28,7 +28,7 @@ export default {
             "footer.title": "Faça a validação do seu website",
             "blockchain.title": 'Auditoria em Blockchain',
             "blockchain.body": 'A API de validação em Blockchain garante o registro imutável, com auditoria e seguro quanto aos registros de eventos que envolvam dados pessoais.',
-            'proof-consent.title': Prova de consentimento',
+            'proof-consent.title': 'Prova de consentimento',
             'proof-consent.body': 'A prova de consentimento garante o não-repúdio de consentimento do titular de dados em relação aos seus dados pessoais submetidos para a empresa.',
             'cookie-consent.title': 'Consentimento de Cookies',
             'cookie-consent.body': 'Utilize nossa plataforma de consentimento de cookies para gerenciar melhor os testemunhos de conexão de seus portais web e comunicar melhor os titulares dos dados.',
