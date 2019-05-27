@@ -6,7 +6,6 @@ import store from './store'
 import { theme, GlobalStyle } from './styles'
 import * as serviceWorker from './serviceWorker'
 import App from './Routes'
-import { I18nextProvider } from 'react-i18next';
 
 import './i18n'
 
@@ -18,6 +17,7 @@ WebFont.load({
   },
 })
 
+console.log('base', process.env.PUBLIC_URL)
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
