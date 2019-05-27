@@ -5,6 +5,7 @@ import 'antd/es/col/style/css'
 import 'antd/es/divider/style/css'
 import 'antd/es/form/style/css'
 import 'antd/es/input/style/css'
+import './select/'
 
 import bg from '../assets/grid-white.png'
 import darkBg from '../assets/background-dark-grid-fade.png'
@@ -25,6 +26,11 @@ const theme = {
 }
 
 const GlobalStyle = createGlobalStyle`
+
+  html {
+    --c: ${theme.secondaryColor};
+    --antd-wave-shadow-color: ${rgba(theme.fifthColor, 0.5)};
+  }
   html,
   body {
     margin: 0

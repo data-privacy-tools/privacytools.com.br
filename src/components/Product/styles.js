@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import { StyledContainer } from '../Container/styles'
 import { rgba } from 'polished'
 
 export const StyledBanner = styled.header`

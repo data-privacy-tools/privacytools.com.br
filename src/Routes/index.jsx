@@ -10,20 +10,23 @@ const Cookies = lazy(() => import('../components/Product/Cookies'));
 const Blockchain = lazy(() => import('../components/Product/Blockchain'));
 const ConfirmEmail = lazy(() => import('../components/ConfirmEmail'));
 const ConfirmedEmail = lazy(() => import('../components/ConfirmedEmail'));
+const Contact = lazy(() => import('../components/Contact'));
 
-function AppRouter() {
+function AppRouter(props) {
+
   return (
     <Router>
         <Suspense fallback={<div></div>}>
             <Switch>
-                <Route path='/' exact component={Home} />
-                <Route path='/login/' component={Login} />
-                <Route path='/signUp/' component={SignUp} />
-                <Route path='/confirm-your-email/' component={ConfirmEmail} />
-                <Route path='/email-confirmed/' component={ConfirmedEmail} />
-                <Route path='/proof-on-concession/' component={Proof} />
-                <Route path='/blockchain/' component={Blockchain} />
-                <Route path='/cookies/' component={Cookies} />
+              <Route path='/' exact component={Home} />
+              <Route path='/login/' exact component={Login} />
+              <Route path='/signUp/' exact component={SignUp} />
+              <Route path='/confirm-your-email/'  exact component={ConfirmEmail} />
+              <Route path='/email-confirmed/'  exact component={ConfirmedEmail} />
+              <Route path='/proof-on-concession/' exact component={Proof} />
+              <Route path='/auditing-in-blockchain/' exact component={Blockchain} />
+              <Route path='/cookie-consent/' exact component={Cookies} />
+              <Route path='/contact/' exact component={Contact} />
             </Switch>
         </Suspense>
     </Router>

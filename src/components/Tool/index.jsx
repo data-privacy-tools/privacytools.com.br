@@ -1,12 +1,14 @@
 import React from 'react'
-import Container from '../Container'
 import {StyledTool} from './styles'
+import { Link } from 'react-router-dom'
 
 function Tool(props) {
   return (
-    <StyledTool>
-      {props.children}
-    </StyledTool>
+      <Link to={props.to} >
+        <StyledTool>
+          {props.children}
+        </StyledTool>
+      </Link>
   )
 }
 

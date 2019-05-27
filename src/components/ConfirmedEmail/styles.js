@@ -5,6 +5,7 @@ export const StyledContainer = styled.div`
   position: relative;
   z-index: 2;
   margin: 0 auto;
+  width: 95%;
   max-width: 720px;
   padding: 72px;
   border-radius: 12px;

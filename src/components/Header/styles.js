@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 50px;
   padding: 10px 0;
   background-color: ${props => rgba(props.theme.whiteColor, 0.6)};
   backdrop-filter: blur(3px);

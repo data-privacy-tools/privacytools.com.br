@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyledCTA, StyledSecondary, StyledPrimaryNegative} from './styles'
+import { StyledCTA, StyledSecondary, StyledPrimaryNegative, StyledInternalLink} from './styles'
+import { Link } from 'react-router-dom'
 
 function CTA(props){
 
@@ -29,6 +30,26 @@ function SecondayCTA(props){
                 {props.children}
             </span>
         </StyledSecondary>
+    )
+}
+
+export function InternalLink(props){
+    return (
+        <StyledInternalLink {...props}>
+            <span>
+                {props.children}
+            </span>
+        </StyledInternalLink>
+    )
+}
+
+export function InternalCTALink(props) {
+    return (
+        <StyledInternalLink {...props}>
+            <span>
+                {props.children}
+            </span>
+        </StyledInternalLink>
     )
 }
 

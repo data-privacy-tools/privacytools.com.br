@@ -1,70 +1,74 @@
 import React from 'react'
-import Header from '../Header'
-import Footer from '../Footer'
-import { Form, Icon, Input, Button, Checkbox } from 'antd'
-import Container from '../Container'
+import { useTranslation } from 'react-i18next'
+import { Form, Icon, Input } from 'antd'
+import {rgba} from 'polished'
 import Margin from '../Margin'
 import { CTA } from '../Button'
-import { Row, Col } from 'antd';
-import { Divider } from 'antd'
 import Main from '../Main'
+import Header from '../Header'
+import {theme} from '../../styles'
+import { StyledFormWrapper} from './styles'
+import { H2 } from '../Title'
 
-import { StyledLoginWrapper} from './styles'
+function Login(props){
 
-class Login extends React.Component {
+  const { t } = useTranslation()
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    this.props.form.validateFields((err, values) => {
+    props.form.validateFields((err, values) => {
       if (!err) {
         console.log({ values})
       }
     })
   }
 
-  render() {
-    const { getFieldDecorator } = this.props.form
+    const { getFieldDecorator } = props.form
     return (
       <>
+        <Header position="relative" />
         <Main>
-          <Header page='login' />
-          <Margin x={120} />
-          <StyledLoginWrapper>
-            <h1>Welcome back!</h1>
-            <p>Log in to access your profile, settings and projects.</p>
-            <Form onSubmit={this.handleSubmit} className="login-form">
-              <Form.Item label="User Name">
-                {getFieldDecorator('username', {
-                  rules: [{ required: true, message: 'Please input your username!' }],
-                })(
-                  <Input
-                    size="large"
-                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    placeholder="Username"
-                  />,
-                )}
-              </Form.Item>
-              <Margin x={24} />
-              <Form.Item label="Password">
-                {getFieldDecorator('password', {
-                  rules: [{ required: true, message: 'Please input your Password!' }],
-                })(
-                  <Input
-                    size="large"
-                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    type="password"
-                    placeholder="Password"
-                  />,
-                )}
-              </Form.Item>
-              <CTA centered htmlType="submit" >Sign in to your account</CTA>
-            </Form>
-          </StyledLoginWrapper>
+          <StyledFormWrapper>
+            <div>
+              <H2>
+                {t('login.title')}
+              </H2>
+              <p>{t('login.headline') }</p>
+              <Form onSubmit={handleSubmit} className="login-form">
+                <Form.Item>
+                  {getFieldDecorator('username', {
+                    rules: [{ required: true, message: t('please-input-your-username') }],
+                  })(
+                    <Input
+                      size="large"
+                      prefix={<Icon type="user" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
+                      placeholder={t('username')}
+                    />,
+                  )}
+                </Form.Item>
+                <Margin x={12} />
+                <Form.Item>
+                  {getFieldDecorator('password', {
+                    rules: [{ required: true, message: t('please-input-your-password') }],
+                  })(
+                    <Input
+                      size="large"
+                      prefix={<Icon type="lock" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
+                      type="password"
+                      placeholder={t('password')}
+                    />,
+                  )}
+                </Form.Item>
+                <Margin x={36} />
+                <CTA centered htmlType="submit">{t('login.button')}</CTA>
+                <Margin x={12} />
+              </Form>
+            </div>
+          </StyledFormWrapper>
         </Main>
-        <Footer />
       </>
     )
-  }
+
 }
 
-export default Form.create({ name: 'normal_login' })(Login);
+export default Form.create({ name: 'login' })(Login);

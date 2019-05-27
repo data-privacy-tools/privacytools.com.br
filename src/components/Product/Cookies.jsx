@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { H1, H2 } from '../Title'
 import Paragraph from '../Paragraph'
 import ProductWrapper from './ProductWrapper'
@@ -11,23 +12,26 @@ import consentimentBanner from '../../assets/cookie-banner.svg'
 import { CTA, SecondayCTA } from '../Button'
 
 function Cookies(props) {
+    const { t } = useTranslation()
     return (
         <ProductWrapper>
             <Banner>
                 <Margin x={72} />
-                <Row gutter={36} type="flex" align="middle" justify="center">
+                <Row gutter={36} type="flex" align="middle" justify="space-between">
                     <Col xs={24} lg={10}>
-                        <img src={consentimentBanner} />
+                        <img src={consentimentBanner} alt="Consent Banner" />
                     </Col>
                     <Col xs={24} lg={12}>
-                        <H1 white>Consentimento de Cookies</H1>
+                        <H1 white>
+                            {t('cookie-consent.title')}
+                        </H1>
                         <Margin x={24} />
                         <Paragraph white>
-                            It is designed to help you quickly comply with the EU, GDPR and California cookie laws. We made it fast, free, and easy for everybody.
+                            {t('cookie-consent.body')}
                         </Paragraph>
                         <Margin x={48} />
                         <CTA white>
-                            Learn how
+                            {t('know-more')}
                         </CTA>
                     </Col>
                 </Row>

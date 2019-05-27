@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { H1, H2 } from '../Title'
 import Paragraph from '../Paragraph'
 import ProductWrapper from './ProductWrapper'
@@ -11,23 +12,24 @@ import consentimentBanner from '../../assets/consentiment-banner.svg'
 import { CTA, SecondayCTA } from '../Button'
 
 function Proof(props) {
+    const { t } = useTranslation()
     return (
         <ProductWrapper>
             <Banner>
                 <Margin x={72} />
-                <Row gutter={36} type="flex" align="middle" justify="center">
+                <Row gutter={36} type="flex" align="middle" justify="space-between">
                     <Col xs={24} lg={10}>
-                        <img src={consentimentBanner} />
+                        <img src={consentimentBanner} alt="Consentiment Banner" />
                     </Col>
                     <Col xs={24} lg={12}>
-                        <H1 white>Understand the Consent Landscape</H1>
+                        <H1 white>{t('proof-consent.title')}</H1>
                         <Margin x={24} />
                         <Paragraph white>
-                            OneTrust integrates seamlessly into your existing information collection workflows to record and centrally manage consent.
+                            {t('proof-consent.body')}
                         </Paragraph>
                         <Margin x={48} />
                         <CTA white>
-                            Learn how
+                            {t('know-more')}
                         </CTA>
                     </Col>
                 </Row>

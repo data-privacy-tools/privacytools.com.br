@@ -6,6 +6,9 @@ import store from './store'
 import { theme, GlobalStyle } from './styles'
 import * as serviceWorker from './serviceWorker'
 import App from './Routes'
+import { I18nextProvider } from 'react-i18next';
+
+import './i18n'
 
 import WebFont from 'webfontloader'
 

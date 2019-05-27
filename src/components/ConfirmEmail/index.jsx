@@ -1,29 +1,28 @@
 import React from 'react'
 import { StyledContainer } from './styles.js'
+import { useTranslation } from 'react-i18next'
 import { H1, H2 } from '../Title'
 import Paragraph from '../Paragraph'
 import emailIcon from '../../assets/email-icon.svg'
-import { CTA, SecondayCTA } from '../Button'
 import Margin from '../Margin'
-import Header from '../Header'
+import AppWrapper from '../AppWrapper'
 
 function ConfirmEmail(props) {
+
+  const { t } = useTranslation()
+
   return (
-    <>
-      <Header position='relative' />
-        <Margin x={56} />
-        <StyledContainer>
-          <img src={emailIcon} />
-          <H1 centered>Confirm your email!</H1>
-          <Paragraph centered maxWidth={520}>
-            your account has been successfully registered. To complete the process please check your email for a validation request
-          </Paragraph>
-          <SecondayCTA centered>
-              Back to the site.
-          </SecondayCTA>
-        </StyledContainer>
-        <Margin x={24} />
-    </>
+    <AppWrapper>
+      <Margin x={96} />
+      <StyledContainer>
+        <img src={emailIcon} alt="E-mail" />
+        <H1 centered>{t('confirm-your-email')}</H1>
+        <Paragraph centered maxWidth={520}>
+          {t('confirm-your-email-body')}
+        </Paragraph>
+      </StyledContainer>
+      <Margin x={24} />
+    </AppWrapper>
   )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import trubrLogo from '../../assets/trubr-logo.svg'
 import { Divider } from 'antd'
 import { H1 } from '../Title'
@@ -6,13 +7,19 @@ import { CTA } from '../Button'
 import StyledFooter from './styles'
 import Margin from '../Margin'
 import Container from '../Container'
-import { Row, Col } from 'antd'
+import { Row } from 'antd'
+import { Link } from 'react-router-dom'
 
-function Footer(props) {
+function Footer() {
+
+  const {t} = useTranslation()
+
   return (
     <StyledFooter>
-      <H1 centered>Get started in minutes</H1>
-      <CTA as='a' href="/" centered>Learn how</CTA>
+      <H1 centered>{t('footer.title')}</H1>
+       <Link to='/contact'>
+        <CTA as='span' centered>{t('know-more')}</CTA>
+       </Link>
       <Margin x={72} />
       <Divider />
       <Margin x={72} />

@@ -34,7 +34,7 @@ export const StyledToolIconWrapper = styled.div`
 
 export const StyledTool = styled.div`
     position: relative;
-    margin: 12px 0;
+    margin: 24px 0;
     padding: 24px;
     border-radius: 2px;
     background-color: ${({ theme }) => theme.whiteColor};

@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import {rgba, darken} from 'polished'
-import { redBright } from 'ansi-colors';
+import { Link } from 'react-router-dom'
+
+
+export const StyledInternalLink = styled(Link)`
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  z-index: 3;
+`
 
 const Button = styled.button`
   position: relative;

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { H1, H2 } from '../Title'
 import Paragraph from '../Paragraph'
 import ProductWrapper from './ProductWrapper'
@@ -8,26 +9,27 @@ import Margin from '../Margin'
 import { Row, Col } from 'antd'
 import blockchainBanner from '../../assets/blockchain-banner.svg'
 
-import { CTA, SecondayCTA } from '../Button'
+import { CTA } from '../Button'
 
-function Blockchain(props) {
+function Blockchain() {
+    const { t } = useTranslation()
     return (
         <ProductWrapper>
             <Banner>
                 <Margin x={72} />
-                <Row gutter={36} type="flex" align="middle" justify="center">
+                <Row gutter={36} type="flex" align="middle" justify="space-between">
                     <Col xs={24} lg={10}>
-                        <img src={blockchainBanner} />
+                        <img src={blockchainBanner} alt="Blockchain Banner" />
                     </Col>
                     <Col xs={24} lg={12}>
-                        <H1 white>Auditoria em Blockchain</H1>
+                        <H1 white>{t('blockchain.title')}</H1>
                         <Margin x={24} />
                         <Paragraph white>
-                            It is designed to help you quickly comply with the EU, GDPR and California cookie laws. We made it fast, free, and easy for everybody.
+                            {t('blockchain.body')}
                         </Paragraph>
                         <Margin x={48} />
                         <CTA white>
-                            Learn how
+                            {t('know-more')}
                         </CTA>
                     </Col>
                 </Row>
