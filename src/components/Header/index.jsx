@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+﻿import React, {useState, useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
 import { StyledHeader, StyledHeaderContainer } from './styles'
@@ -27,7 +27,7 @@ function Header(props) {
     <StyledHeader position={props.position}>
       <StyledHeaderContainer>
         <Link to='/'>
-          <img src={logo} height={36} alt="Privacy Tools" />
+          <img src={logo} height={56} alt="Privacy Tools - LGPD - GDPR - CCPA" title="Privacy Tools - LGPD - GDPR - CCPA"/>
         </Link>
 
         <div style={{ display: 'flex'}}>
