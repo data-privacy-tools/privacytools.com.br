@@ -2,7 +2,7 @@ export default {
     pt_BR: {
         translations: {
             'menu.itens.email':'Contato',
-            'menu.itens.login':'Login',
+            'menu.itens.login':'Entrar',
             'menu.itens.create':'Crie sua conta',
             'send': 'enviar',
             'back': 'Voltar',
@@ -40,6 +40,10 @@ export default {
             'confirm-your-email.body': 'Registre realizado com sucesso. Para confirmar o registro, por favor, verifique seu email',
             'contact.title': 'Fale com a gente!',
             'contact.headline': 'Como podemos te ajudar?',
+            'contact.mail.success.title':'E-mail recebido com sucesso',
+            'contact.mail.success.headline':'Recebemos a sua mensagem. Por favor, aguarde retorno',
+            'contact.mail.error.title':'ERRO ao receber email',
+            'contact.mail.error.headline':'NÃO recebemos a sua mensagem. Mande um email para contato@privacytools.com.br',            
             'login.title': 'Bem vindo de volta',
             'login.headline': 'Faça login para acessar o perfil da empresa, configurações e Log in to access your profile, settings and projects.',
             'login.button': 'Acesse o sistema',

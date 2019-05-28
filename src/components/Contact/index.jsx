@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Form, Input } from 'antd'
 import Margin from '../Margin'
@@ -7,19 +7,49 @@ import { H2 } from '../Title'
 import Main from '../Main'
 import Header from '../Header'
 import { StyledFormWrapper } from '../Login/styles'
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet"
+import * as emailjs from 'emailjs-com';
+import {withRouter, BrowserRouter } from 'react-router-dom';
+
+
 function Contact(props) {
 
   const { t } = useTranslation()
 
+
   const handleSubmit = e => {
     e.preventDefault()
+
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log({ values })
+        sendFeedback(
+          "template_HS6WICh0",
+          values         
+        );
       }
     })
   }
+
+  const sendFeedback = (templateId, values) => {
+    emailjs.init("user_huOCumtg7FQBmiFSYEt8A");
+    emailjs
+      .send('mailgun', templateId, {
+        'from_email':values.email,
+        'from_name':values.name,
+        'message_html':values.Comment,
+        'from_website':values.website
+      })
+      .then(res => {
+        console.log("SUCESSO!");
+        //setState({"feedback":"Email enviado com sucesso"});
+        props.history.push('/mail-success');
+      })
+      // Handle errors here however you like
+      .catch(err =>{ console.error('Failed to send feedback. Error: ', err);
+      props.history.push('/mail-error');
+    });
+  }  
 
   const { getFieldDecorator } = props.form
 
@@ -27,7 +57,8 @@ function Contact(props) {
     <>
       <Helmet>
                 <title>{t('head.contact.title')}</title>
-                <description>{t('head.contact.description')}</description>
+                <description>{t('head.contact.description')}</description>                
+                <script type='text/javascript' src='//cdn.emailjs.com/sdk/2.3.2/email.min.js'></script>
       </Helmet>      
       <Header position="relative" />
       <Main>
@@ -35,7 +66,7 @@ function Contact(props) {
           <div>
             <H2>{t('contact.title')}</H2>
             <p>{t('contact.headline')}</p>
-            <Margin x={24} />
+            <Margin x={24} />            
             <Form onSubmit={handleSubmit}>
               <Form.Item>
                 {getFieldDecorator('Name', {
