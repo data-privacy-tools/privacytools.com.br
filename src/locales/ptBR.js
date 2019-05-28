@@ -1,6 +1,9 @@
 export default {
     pt_BR: {
         translations: {
+            'menu.itens.email':'Contato',
+            'menu.itens.login':'Login',
+            'menu.itens.create':'Crie sua conta',
             'send': 'enviar',
             'back': 'Voltar',
             'please-input-your-name': 'Preencha o campo nome',

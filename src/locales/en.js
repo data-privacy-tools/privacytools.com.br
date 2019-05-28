@@ -1,6 +1,9 @@
 export default {
     en: {
         translations: {
+            'menu.itens.email':'Contact',
+            'menu.itens.login':'Login',
+            'menu.itens.create':'Create your account',            
             'send': 'enviar',
             'back': 'Voltar',
             'please-input-your-name': 'Preencha o campo nome',
@@ -40,6 +43,13 @@ export default {
             'login.title': 'Welcome Back',
             'login.headline': 'Log in to access your profile, settings and projects.',
             'login.button': 'Sign in to your account',
+
+            //HEAD ATTRIBUTES AND TITLES
+            'head.home.title':'Privacy Tools - LGPD - GDPR - CCPA',
+            'head.home.description':'Privacy Tools is a platform to help your company to reach an adequate level of quality on data protection - LGPD - GDPR - CCPA',
+            'head.contact.title':'Privacy Tools - LGPD - GDPR - CCPA - Contact',
+            'head.contact.description':'Privacy Tools is a platform to help your company to reach an adequate level of quality on data protection - LGPD - GDPR - CCPA - Contact',            
+
         }
     }
 }
