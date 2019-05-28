@@ -6,12 +6,17 @@ import Tools from '../Tools'
 import { H1 } from '../Title'
 import Paragraph from '../Paragraph'
 import AppWrapper from '../AppWrapper'
+import {Helmet} from "react-helmet";
 
 function Home() {
   const { t } = useTranslation()
 
   return (
     <>
+      <Helmet>
+                <title>{t('head.home.title')}</title>
+                <description>{t('head.home.description')}</description>
+      </Helmet>  
       <AppWrapper>
         <Margin x={96} />
         <Banner />

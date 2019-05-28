@@ -7,7 +7,7 @@ import { H2 } from '../Title'
 import Main from '../Main'
 import Header from '../Header'
 import { StyledFormWrapper } from '../Login/styles'
-
+import {Helmet} from "react-helmet";
 function Contact(props) {
 
   const { t } = useTranslation()
@@ -25,6 +25,10 @@ function Contact(props) {
 
   return (
     <>
+      <Helmet>
+                <title>{t('head.contact.title')}</title>
+                <description>{t('head.contact.description')}</description>
+      </Helmet>      
       <Header position="relative" />
       <Main>
         <StyledFormWrapper>
