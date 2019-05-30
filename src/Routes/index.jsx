@@ -12,6 +12,9 @@ const ConfirmEmail = lazy(() => import('../components/ConfirmEmail'));
 const ConfirmedEmail = lazy(() => import('../components/ConfirmedEmail'));
 const Contact = lazy(() => import('../components/Contact'));
 
+const EmailSucesso = lazy(() => import('../components/EmailSucesso'));
+const EmailErro = lazy(() => import('../components/EmailErro'));
+
 function AppRouter(props) {
 
   return (
@@ -27,6 +30,8 @@ function AppRouter(props) {
               <Route path='/auditing-in-blockchain/' exact component={Blockchain} />
               <Route path='/cookie-consent/' exact component={Cookies} />
               <Route path='/contact/' exact component={Contact} />
+              <Route path='/mail-success/' exact component={EmailSucesso} />
+              <Route path='/mail-error/' exact component={EmailErro} />
             </Switch>
         </Suspense>
     </Router>

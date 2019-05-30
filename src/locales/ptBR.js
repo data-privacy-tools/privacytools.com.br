@@ -1,6 +1,9 @@
 export default {
     pt_BR: {
         translations: {
+            'menu.itens.email':'Contato',
+            'menu.itens.login':'Entrar',
+            'menu.itens.create':'Crie sua conta',
             'send': 'enviar',
             'back': 'Voltar',
             'please-input-your-name': 'Preencha o campo nome',
@@ -12,8 +15,7 @@ export default {
             'password': 'Senha',
             'name': 'Nome',
             'message': 'Mensagem',
-            'banner.heading': 'A plataforma de conformidade para as empresas quem levam privacidade a sério',
-            'banner.body': 'Thanks to our talented and prolific developer community, we’ve been able to highlight a bunch of great examples and tutorials on our Expo blog. Here’s a running collection, in no particular order.',
+            'banner.heading': 'A plataforma de conformidade para as empresas quem levam privacidade a sério',            
 			'banner.body': 'Ferramentas para proteção de dados pessoais para encarregado de dados(DPO) e empresas que precisam estar em conformidade com a GDPR, CCPA e LGPD.',
             'banner.button': 'Saiba Mais',
             'know-more': 'Saiba Mais',
@@ -38,9 +40,19 @@ export default {
             'confirm-your-email.body': 'Registre realizado com sucesso. Para confirmar o registro, por favor, verifique seu email',
             'contact.title': 'Fale com a gente!',
             'contact.headline': 'Como podemos te ajudar?',
+            'contact.mail.success.title':'E-mail recebido com sucesso',
+            'contact.mail.success.headline':'Recebemos a sua mensagem. Por favor, aguarde retorno',
+            'contact.mail.error.title':'ERRO ao receber email',
+            'contact.mail.error.headline':'NÃO recebemos a sua mensagem. Mande um email para contato@privacytools.com.br',            
             'login.title': 'Bem vindo de volta',
             'login.headline': 'Faça login para acessar o perfil da empresa, configurações e Log in to access your profile, settings and projects.',
             'login.button': 'Acesse o sistema',
+
+            //HEAD ATTRIBUTES AND TITLES
+            'head.home.title':'Privacy Tools - LGPD - GDPR - CCPA',
+            'head.home.description':'Privacy Tools é a plataforma adequada para a sua empresa entrar em conformidade com a proteção de dados pessoais da LGPD - GDPR - CCPA',
+            'head.contact.title':'Privacy Tools - LGPD - GDPR - CCPA - Fale conosco',
+            'head.contact.description':'Privacy Tools é a plataforma adequada para a sua empresa entrar em conformidade com a proteção de dados pessoais da LGPD - GDPR - CCPA - Fale conosco',            
         }
     }
 }

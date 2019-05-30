@@ -1,6 +1,9 @@
 export default {
     en: {
         translations: {
+            'menu.itens.email':'Contact',
+            'menu.itens.login':'Log in',
+            'menu.itens.create':'Create your account',            
             'send': 'enviar',
             'back': 'Voltar',
             'please-input-your-name': 'Preencha o campo nome',
@@ -36,10 +39,21 @@ export default {
             'confirm-your-email.title': 'Confirm your email!',
             'confirm-your-email.body': 'your account has been successfully registered. To complete the process please check your email for a validation request',
             'contact.title': 'Fale com a gente!',
-            'contact.headline': 'Como podemos te ajudar?',
+            'contact.headline': 'How can we help you?',
+            'contact.mail.success.title':'Yes, we got you message',
+            'contact.mail.success.headline':'We will return you as soon as possible',   
+            'contact.mail.error.title':'ERROR on sending message',
+            'contact.mail.error.headline':'We did NOT receive you message. Please, email us on contato@privacytools.com.br',                                 
             'login.title': 'Welcome Back',
             'login.headline': 'Log in to access your profile, settings and projects.',
             'login.button': 'Sign in to your account',
+
+            //HEAD ATTRIBUTES AND TITLES
+            'head.home.title':'Privacy Tools - LGPD - GDPR - CCPA',
+            'head.home.description':'Privacy Tools is a platform to help your company to reach an adequate level of quality on data protection - LGPD - GDPR - CCPA',
+            'head.contact.title':'Privacy Tools - LGPD - GDPR - CCPA - Contact',
+            'head.contact.description':'Privacy Tools is a platform to help your company to reach an adequate level of quality on data protection - LGPD - GDPR - CCPA - Contact',            
+
         }
     }
 }
