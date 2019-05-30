@@ -15,7 +15,7 @@ const Contact = lazy(() => import('../components/Contact'));
 function AppRouter(props) {
 
   return (
-    <Router basename={'https://privacytools.com.br/'}>
+    <Router basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<div></div>}>
             <Switch>
               <Route path='/' exact component={Home} />

@@ -17,7 +17,7 @@ WebFont.load({
   },
 })
 
-console.log('base https://privacytools.com.br/' , process.env.PUBLIC_URL)
+console.log('base', process.env.PUBLIC_URL)
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
