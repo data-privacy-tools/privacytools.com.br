@@ -17,7 +17,7 @@ export const StyledSpacer = styled.div`
 
 export const StyledLoginButton = styled(Link)`
     position: relative;
-    padding: 0.4rem 1.4rem;
+    padding: 0.35rem 1.4rem;
     border-radius: 4px;
     border: 2px solid ${({ theme }) => theme.secondaryColor};
     span{

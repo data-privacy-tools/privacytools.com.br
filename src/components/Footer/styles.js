@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledFooter = styled.footer`
     padding: 72px 0 0;
@@ -15,6 +16,15 @@ const StyledFooter = styled.footer`
             }
         }
     }
+`
+
+export const StyledMenu = styled.div`
+    display: flex;
+    align-items: center;
+`
+export const StyledMenuItem = styled(Link)`
+    margin: 0 24px;
+    font-weight: 300;
 `
 
 export default StyledFooter

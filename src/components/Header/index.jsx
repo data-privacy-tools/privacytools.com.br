@@ -32,9 +32,11 @@ function Header(props) {
 
         <div style={{ display: 'flex'}}>
           <Menu page={props.page} />
-          <Select defaultValue="pt_BR" size="large" onChange={handleChange} style={{ width: 120, marginLeft:'20px' }}>
-            <Option value="en">English</Option>
-            <Option value="pt_BR">Português</Option>
+          <Select defaultValue="pt_BR" size="large" onChange={handleChange} style={{ marginLeft:'20px' }}>
+            <Option value="en">
+              <span role="img" aria-label="English">🇺🇸{' '} </span>English
+            </Option>
+            <Option value="pt_BR"><span role="img" aria-label="Português">🇧🇷{' '} </span>Português</Option>
           </Select>
         </div>
 

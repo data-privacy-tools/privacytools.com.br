@@ -4,7 +4,7 @@ import { StyledMenu, StyledLoginButton, StyledMenuItem, StyledSpacer } from './s
 function Menu({page}) {
 
     const { t } = useTranslation()
-    
+
     return (
         <StyledMenu>
             <StyledMenuItem to="contact">
