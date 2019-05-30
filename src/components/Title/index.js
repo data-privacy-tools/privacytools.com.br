@@ -11,10 +11,19 @@ export const H2 = styled.h2`
 `
 
 export const H1 = styled.h1`
-  font-size: ${rem('52px')};
-  line-height: ${rem('58px')};
   text-align: ${({centered}) => centered ? 'center' : 'left' };
   color: ${({ theme, white }) => white ? theme.whiteColor : theme.fourthColor};
+
+  @media (min-width: 701px) {
+    font-size: ${rem('52px')};
+    line-height: ${rem('58px')};
+  }
+
+  @media (max-width: 700px) {
+     font-size: ${rem('40px')};
+    line-height: ${rem('44px')};
+  }
+
 `
 
 export const SubTitle = styled.h4`

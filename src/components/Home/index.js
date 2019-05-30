@@ -14,11 +14,11 @@ function Home() {
   return (
     <>
       <Helmet>
-                <title>{t('head.home.title')}</title>
-                <description>{t('head.home.description')}</description>
-      </Helmet>  
+        <title>{t('head.home.title')}</title>
+        <description>{t('head.home.description')}</description>
+      </Helmet>
       <AppWrapper>
-        <Margin x={96} />
+        <Margin x={120} />
         <Banner />
         <Margin x={72} />
         <Tools>
