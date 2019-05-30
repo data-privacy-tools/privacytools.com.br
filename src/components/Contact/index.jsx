@@ -9,13 +9,16 @@ import Header from '../Header'
 import { StyledFormWrapper } from '../Login/styles'
 import {Helmet} from "react-helmet"
 import * as emailjs from 'emailjs-com';
-import {withRouter, BrowserRouter } from 'react-router-dom';
+
+import ReCAPTCHA from "react-google-recaptcha"
+import { captcha} from '../../config'
 
 
 function Contact(props) {
 
   const { t } = useTranslation()
 
+  const onChangeCaptcha = captcha => props.form.setFieldsValue({ captcha })
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -25,7 +28,7 @@ function Contact(props) {
         console.log({ values })
         sendFeedback(
           "template_HS6WICh0",
-          values         
+          values
         );
       }
     })
@@ -49,7 +52,7 @@ function Contact(props) {
       .catch(err =>{ console.error('Failed to send feedback. Error: ', err);
       props.history.push('/mail-error');
     });
-  }  
+  }
 
   const { getFieldDecorator } = props.form
 
@@ -57,16 +60,16 @@ function Contact(props) {
     <>
       <Helmet>
                 <title>{t('head.contact.title')}</title>
-                <description>{t('head.contact.description')}</description>                
+                <description>{t('head.contact.description')}</description>
                 <script type='text/javascript' src='//cdn.emailjs.com/sdk/2.3.2/email.min.js'></script>
-      </Helmet>      
+      </Helmet>
       <Header position="relative" />
       <Main>
         <StyledFormWrapper>
           <div>
             <H2>{t('contact.title')}</H2>
             <p>{t('contact.headline')}</p>
-            <Margin x={24} />            
+            <Margin x={24} />
             <Form onSubmit={handleSubmit}>
               <Form.Item>
                 {getFieldDecorator('Name', {
@@ -111,6 +114,7 @@ function Contact(props) {
                   <Input size="large" placeholder="Website" />
                 )}
               </Form.Item>
+              {getFieldDecorator('captcha')(<Input type="hidden" />)}
 
               <Margin x={12} />
 
@@ -121,7 +125,8 @@ function Contact(props) {
                 <Input.TextArea size="large" placeholder={t('message')} autosize={{ minRows: 5 }} />
                 )}
               </Form.Item>
-
+              <Margin x={36} />
+              <ReCAPTCHA sitekey={captcha} onChange={onChangeCaptcha} />
               <Margin x={36} />
               <CTA centered htmlType="submit">{t('send')}</CTA>
             </Form>
