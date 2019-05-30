@@ -64,7 +64,7 @@ export const StyledCTA = styled(Button)`
   background-color: ${({theme}) => theme.secondaryColor};
   color: ${({theme}) => theme.whiteColor};
   font-size: ${({ theme }) => theme.baseFontSize};
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
 
   &:after{
     position: absolute;
