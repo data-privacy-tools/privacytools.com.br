@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Form, Icon, Input } from 'antd'
 import {rgba} from 'polished'
@@ -9,6 +9,9 @@ import Header from '../Header'
 import {theme} from '../../styles'
 import { StyledFormWrapper} from './styles'
 import { H2 } from '../Title'
+import ReCAPTCHA from "react-google-recaptcha"
+import { captcha} from '../../config'
+
 
 function Login(props){
 
@@ -18,10 +21,12 @@ function Login(props){
     e.preventDefault()
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log({ values})
+        console.log({ values })
       }
     })
   }
+
+  const onChangeCaptcha = captcha => props.form.setFieldsValue({captcha})
 
     const { getFieldDecorator } = props.form
     return (
@@ -59,6 +64,16 @@ function Login(props){
                     />,
                   )}
                 </Form.Item>
+
+                {getFieldDecorator('captcha')(<Input type="hidden" />)}
+
+                <Margin x={36} />
+
+                <ReCAPTCHA
+                  sitekey={captcha}
+                  onChange={onChangeCaptcha}
+                />
+
                 <Margin x={36} />
                 <CTA centered htmlType="submit">{t('login.button')}</CTA>
                 <Margin x={12} />

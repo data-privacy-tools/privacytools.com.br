@@ -11,6 +11,9 @@ import LegalText from '../LegalText'
 import { H2 } from '../Title'
 import { StyledFormWrapper } from '../Login/styles'
 
+import ReCAPTCHA from "react-google-recaptcha"
+import { captcha } from '../../config'
+
 function SignUp(props) {
 
   const { form } = props
@@ -50,6 +53,8 @@ function SignUp(props) {
     const value = e.target.value;
     setConfirmDirty(confirmDirty)
   }
+
+  const onChangeCaptcha = captcha => props.form.setFieldsValue({ captcha })
 
   const { getFieldDecorator } = form
   return (
@@ -109,6 +114,9 @@ function SignUp(props) {
                   ],
                 })(<Input.Password size="large" placeholder="Password" prefix={<Icon type="lock" style={{ color: rgba(theme.secondaryColor, 0.3) }} />} />)}
               </Form.Item>
+
+              {getFieldDecorator('captcha')(<Input type="hidden" />)}
+
               <Margin x={12} />
               <Form.Item hasFeedback>
                 {getFieldDecorator('confirm', {
@@ -127,6 +135,14 @@ function SignUp(props) {
                   size="large"
                  />)}
               </Form.Item>
+
+              <Margin x={36} />
+
+              <ReCAPTCHA
+                sitekey={captcha}
+                onChange={onChangeCaptcha}
+              />
+
               <Margin x={36} />
               <CTA centered htmlType="submit" >Create your account</CTA>
               <Margin x={24} />
