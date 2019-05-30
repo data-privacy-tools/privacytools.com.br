@@ -7,7 +7,7 @@ import Paragraph from '../Paragraph'
 import AppWrapper from '../AppWrapper'
 import {Helmet} from "react-helmet"
 
-function InstitutionalPages() {
+function TermsOfUse() {
   const { t } = useTranslation()
 
   return (
@@ -28,4 +28,4 @@ function InstitutionalPages() {
   )
 }
 
-export default InstitutionalPages
+export default TermsOfUse

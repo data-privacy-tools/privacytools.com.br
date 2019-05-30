@@ -15,7 +15,7 @@ const Contact = lazy(() => import('../components/Contact'));
 const EmailSucesso = lazy(() => import('../components/EmailSucesso'));
 const EmailErro = lazy(() => import('../components/EmailErro'));
 
-const TermsAndUse = lazy(()=> import('../components/Terms&Use') );
+const TermsOfUse = lazy(() => import('../components/TermsOfUse') );
 
 function AppRouter(props) {
 
@@ -34,7 +34,8 @@ function AppRouter(props) {
               <Route path='/contact/' exact component={Contact} />
               <Route path='/mail-success/' exact component={EmailSucesso} />
               <Route path='/mail-error/' exact component={EmailErro} />
-              <Route path='/terms-&-use/' exact component={TermsAndUse} />
+              <Route path='/terms-of-use/' exact component={TermsOfUse} />
+              <Route path='/privacy-policy' exact component={TermsOfUse} />
             </Switch>
         </Suspense>
     </Router>
