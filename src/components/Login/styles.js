@@ -13,7 +13,15 @@ export const StyledFormWrapper = styled.div`
         margin: 0 auto;
         width: 95%;
         max-width: 480px;
-        padding: 72px;
+
+        @media (min-width: 701px) {
+            padding: 72px;
+        }
+
+        @media (max-width: 700px) {
+           padding: 24px;
+        }
+
         border-radius: 8px;
         background-color: white;
         box-shadow: ${({ theme }) => `0 2px 4px ${rgba(theme.primaryColor, 0.05)}, 0 4px 8px  ${rgba(theme.primaryColor, 0.05)}, 0 16px 16px  ${rgba(theme.primaryColor, 0.05)}, 0 32px 32px  ${rgba(theme.primaryColor, 0.07)}, 0 64px 64px ${rgba(theme.primaryColor, 0.07)}`};

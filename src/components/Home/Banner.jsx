@@ -16,7 +16,7 @@ function Banner() {
     <div>
       <Container>
         <Row gutter={36} type="flex" align="middle" justify="space-between">
-          <Col xs={24} lg={12}>
+          <Col xs={24} sm={12}>
             <H1>
               {t('banner.heading')}
             </H1>
@@ -28,8 +28,9 @@ function Banner() {
                 {t('know-more')}
               </CTA>
             </Link>
+            <Margin x={48} />
           </Col>
-          <Col xs={24} lg={12}>
+          <Col xs={24} sm={12}>
             <img src={banner} />
           </Col>
         </Row>

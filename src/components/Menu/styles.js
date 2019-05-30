@@ -3,13 +3,43 @@ import { darken } from 'polished'
 import { Link } from 'react-router-dom'
 
 export const StyledMenu = styled.div`
-    display: flex;
-    align-items: center;
+
+    @media (min-width: 701px) {
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 700px) {
+        position: fixed;
+        opacity: 0;
+        pointer-events: none;
+        top: 0;
+        right: 0;
+        z-index: 99;
+        width: 320px;
+        min-height: 100vh;
+        padding: 24px;
+        background: ${props => props.theme.thirdColor};
+
+        a{
+            display: block;
+        }
+    }
+
 `
 
 export const StyledMenuItem = styled(Link)`
-    margin: 0 24px;
     font-weight: 300;
+
+    @media (min-width: 701px) {
+        margin: 0 24px;
+    }
+
+    @media (max-width: 700px) {
+        margin: 12px 0;
+        display: block;
+    }
+
 `
 export const StyledSpacer = styled.div`
   margin: 0 12px
