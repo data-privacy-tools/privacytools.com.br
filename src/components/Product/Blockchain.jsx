@@ -20,6 +20,7 @@ function Blockchain() {
                 <Row gutter={36} type="flex" align="middle" justify="space-between">
                     <Col xs={24} lg={10}>
                         <img src={blockchainBanner} alt="Blockchain Banner" />
+                        <Margin x={24} />
                     </Col>
                     <Col xs={24} lg={12}>
                         <H1 white>{t('blockchain.title')}</H1>
