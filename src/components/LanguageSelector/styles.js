@@ -7,7 +7,7 @@ export const StyledOption = styled.span`
 	align-items: center;
 
 	img {
-		margin-right: 4px;
+		margin-right: 5px;
 		border-radius: 20px;
 	}
 
