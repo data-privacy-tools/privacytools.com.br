@@ -3,13 +3,13 @@ import Header from '../Header'
 import Footer from '../Footer'
 
 function AppWrapper(props) {
-  return (
-    <>
-      <Header />
-      {props.children}
-      <Footer />
-    </>
-  )
+	return (
+		<>
+			<Header />
+			{props.children}
+			<Footer />
+		</>
+	)
 }
 
-export default AppWrapper
+export default React.memo(AppWrapper)

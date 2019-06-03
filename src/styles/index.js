@@ -11,26 +11,31 @@ import bg from '../assets/grid-white.png'
 import darkBg from '../assets/background-dark-grid-fade.png'
 
 const theme = {
-  primaryColor: 'black',
-  secondaryColor: '#180E5B',
-  thirdColor: '#f4f7f9',
-  fourthColor: '#343d46',
-  fifthColor: '#4630EB',
-  sixthColor: '#F3F3F3',
-  seventhColor: '#274156',
-  whiteColor: 'white',
-  baseFontSize: '17px',
-  backGround: bg,
-  darkBackGround: darkBg,
-  fontFamilyBase: "'Fira Sans', sans-serif",
+	primaryColor: 'black',
+	secondaryColor: '#180E5B',
+	thirdColor: '#f4f7f9',
+	fourthColor: '#343d46',
+	fifthColor: '#4630EB',
+	sixthColor: '#F3F3F3',
+	seventhColor: '#274156',
+	whiteColor: 'white',
+	baseFontSize: '17px',
+	backGround: bg,
+	darkBackGround: darkBg,
+	fontFamilyBase: "'Fira Sans', sans-serif",
 }
 
 const GlobalStyle = createGlobalStyle`
+
+  *{
+    box-sizing: border-box;
+  }
 
   html {
     --c: ${theme.secondaryColor};
     --antd-wave-shadow-color: ${rgba(theme.fifthColor, 0.5)};
   }
+
   html,
   body {
     margin: 0
@@ -82,6 +87,15 @@ const GlobalStyle = createGlobalStyle`
 
   ul, li{
     list-style: none
+  }
+
+  .ant-select-selection--single{
+    margin-top: 0;
+  }
+
+  .ant-select-selection-selected-value{
+    height: 36px;
+    width: 100%;
   }
 `
 

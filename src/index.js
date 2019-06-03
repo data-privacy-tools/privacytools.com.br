@@ -12,22 +12,21 @@ import './i18n'
 import WebFont from 'webfontloader'
 
 WebFont.load({
-  google: {
-    families: ['Fira+Sans:300,400,500,600'],
-  },
+	google: {
+		families: ['Fira+Sans:300,400,500,600'],
+	},
 })
 
-console.log('base', process.env.PUBLIC_URL)
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <App />
-      </>
-    </ThemeProvider>
-  </Provider>,
-  document.getElementById('root')
+	<Provider store={store}>
+		<ThemeProvider theme={theme}>
+			<>
+				<GlobalStyle />
+				<App />
+			</>
+		</ThemeProvider>
+	</Provider>,
+	document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change
