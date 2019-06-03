@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 
 const Home = lazy(() => import('../components/Home'));
@@ -14,6 +14,8 @@ const Contact = lazy(() => import('../components/Contact'));
 
 const EmailSucesso = lazy(() => import('../components/EmailSucesso'));
 const EmailErro = lazy(() => import('../components/EmailErro'));
+
+const TermsOfUse = lazy(() => import('../components/TermsOfUse') );
 
 function AppRouter(props) {
 
@@ -32,6 +34,8 @@ function AppRouter(props) {
               <Route path='/contact/' exact component={Contact} />
               <Route path='/mail-success/' exact component={EmailSucesso} />
               <Route path='/mail-error/' exact component={EmailErro} />
+              <Route path='/terms-of-use/' exact component={TermsOfUse} />
+              <Route path='/privacy-policy' exact component={TermsOfUse} />
             </Switch>
         </Suspense>
     </Router>

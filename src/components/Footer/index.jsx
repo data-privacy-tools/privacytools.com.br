@@ -9,6 +9,7 @@ import Margin from '../Margin'
 import Container from '../Container'
 import { Row } from 'antd'
 import { Link } from 'react-router-dom'
+import FooterMenu from './FooterMenu'
 
 function Footer() {
 
@@ -26,10 +27,7 @@ function Footer() {
       <Container>
         <Margin x={36} />
         <Row type="flex" justify="space-between">
-          <a href="/" style={{ fontSize: '12px' }}>
-            Powered by
-            <img src={trubrLogo} height={12} style={{ marginLeft: '3px' }} />
-          </a>
+          <FooterMenu />
           <small>Copyright © {new Date().getFullYear()} All Rights Reserved</small>
         </Row>
         <Margin x={36} />
