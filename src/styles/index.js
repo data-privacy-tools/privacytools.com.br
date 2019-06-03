@@ -5,6 +5,8 @@ import 'antd/es/col/style/css'
 import 'antd/es/divider/style/css'
 import 'antd/es/form/style/css'
 import 'antd/es/input/style/css'
+import 'antd/es/checkbox/style/css'
+
 import './select/'
 
 import bg from '../assets/grid-white.png'
@@ -68,11 +70,6 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer
   }
 
-  .injected-svg{
-    width: 100%;
-    height: auto;
-  }
-
   a{
     color: ${theme.fourthColor};
   }
@@ -96,6 +93,11 @@ const GlobalStyle = createGlobalStyle`
   .ant-select-selection-selected-value{
     height: 36px;
     width: 100%;
+  }
+
+  .injected-svg{
+    width: 100%;
+    height: auto;
   }
 `
 
