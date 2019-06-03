@@ -19,6 +19,7 @@ export const StyledOption = styled.span`
 `
 
 export const StyledSelector = styled(Select)`
+	background: transparent;
 	@media (min-width: 700px) {
 		width: 150px;
 	}

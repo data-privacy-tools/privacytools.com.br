@@ -40,7 +40,7 @@ export const StyledMenuItem = styled(Link)`
 	font-weight: 300;
 
 	@media (min-width: 701px) {
-		margin: 0 24px;
+		margin: 0 24px 0 0;
 	}
 
 	@media (max-width: 700px) {

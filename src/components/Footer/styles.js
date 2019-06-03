@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Container from '../Container'
+
+export const StyledSubFooter = styled(Container)`
+	padding: 72px 24px;
+	background: ${props => props.theme.secondaryColor};
+`
 
 const StyledFooter = styled.footer`
 	padding: 72px 0 0;
@@ -31,13 +37,19 @@ export const StyledMenu = styled.div`
 export const StyledMenuItem = styled(Link)`
 	font-weight: 300;
 	display: block;
+	color: ${props => props.theme.thirdColor};
+
 	@media (min-width: 701px) {
-		margin: 0 24px;
+		margin: 0 24px 0 0;
 	}
 
 	@media (max-width: 700px) {
-		margin: 24px 0;
+		margin: 0 0 24px 0;
 	}
+`
+
+export const StyledSocialLink = styled.a`
+	margin: 0 0 0 12px;
 `
 
 export default StyledFooter
