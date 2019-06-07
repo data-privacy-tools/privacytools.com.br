@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Header from '../Header'
+import Footer from '../Footer'
 import { Form, Icon, Input, Checkbox } from 'antd'
 import Margin from '../Margin'
 import { CTA } from '../Button'
@@ -171,6 +172,7 @@ function SignUp(props) {
 					</div>
 				</StyledFormWrapper>
 			</Main>
+			<Footer />
 		</>
 	)
 }
