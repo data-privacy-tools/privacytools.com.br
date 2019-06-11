@@ -31,6 +31,7 @@ function SignUp(props) {
 		form.validateFields((err, values) => {
 			if (!err && terms) {
 				console.log({ values })
+
 			}
 		})
 	}
@@ -57,7 +58,7 @@ function SignUp(props) {
 
 	const onChangeCaptcha = captcha => props.form.setFieldsValue({ captcha })
 
-	const termsOfService = ({ target }) => setTerms(target.checked.value)
+	const termsOfService = ({ target }) => setTerms(target.checked)
 
 	const { getFieldDecorator } = form
 	return (
