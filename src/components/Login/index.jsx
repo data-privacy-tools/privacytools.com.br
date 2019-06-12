@@ -15,7 +15,7 @@ import { captcha } from '../../config'
 import {sha256} from 'js-sha256';
 
 import AUTH from '../../auth';
-import {apiLogin} from '../../api';
+import {apiInstance} from '../../api';
 
 function Login(props) {
 	const { t } = useTranslation()
@@ -24,7 +24,7 @@ function Login(props) {
 		e.preventDefault()
 		props.form.validateFields((err, values) => {
 			if (!err) {
-				apiLogin().login( {email: values.username, password: sha256(values.password) } )
+				apiInstance().login( {email: values.username, password: sha256(values.password) } )
                 .then( (response) => {
                     const body = JSON.stringify({ stepTwo: true, email: values.username, token: response.data.token });
                     AUTH.logout();

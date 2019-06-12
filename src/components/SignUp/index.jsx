@@ -15,6 +15,9 @@ import { StyledFormWrapper } from '../Login/styles'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { captcha } from '../../config'
 
+import {apiInstance} from '../../api'
+import {sha256} from 'js-sha256'
+
 function SignUp(props) {
 	const { form } = props
 
@@ -30,7 +33,13 @@ function SignUp(props) {
 
 		form.validateFields((err, values) => {
 			if (!err && terms) {
-				console.log({ values })
+				apiInstance().saveComapany( {email: values.email, password: sha256(values.password) } )
+					.then( (response) => {
+						props.history.push('/');
+					})
+					.catch(e => {
+						console.log("Erro: "+ e);
+					});
 
 			}
 		})

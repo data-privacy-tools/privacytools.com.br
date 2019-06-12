@@ -7,7 +7,7 @@ const api = axios.create({
     headers: {'Content-Type': 'application/json'}
 });
 
-class ApiLogin {
+class Api {
     login = (bodyRequest) => {
         return api.post("/auth/session", bodyRequest);
     }
@@ -23,8 +23,12 @@ class ApiLogin {
     resetPasswordSave= (bodyRequest) => {
         return api.put("/reset-password", bodyRequest);
     }
+
+    saveComapany = (bodyRequest) => {
+        return api.request({method: 'post', url: '/api/company/new', data: bodyRequest});
+    }
 }
 
-export const apiLogin = () => {
-    return new ApiLogin();
+export const apiInstance = () => {
+    return new Api();
 }
