@@ -20,6 +20,16 @@ import {apiInstance} from '../../api';
 function Login(props) {
 	const { t } = useTranslation()
 
+	const [showCaptcha, setShowCaptcha] = useState(false);
+
+	const resetAttempts = () => {
+		AUTH.resetAttempts();
+		setShowCaptcha(false);
+	}
+	const incAttempts = () => {
+		AUTH.incAttempts();
+		setShowCaptcha(AUTH.isMaxAttempts());
+	}
 	const handleSubmit = e => {
 		e.preventDefault()
 		props.form.validateFields((err, values) => {
@@ -27,11 +37,13 @@ function Login(props) {
 				apiInstance().login( {email: values.username, password: sha256(values.password) } )
                 .then( (response) => {
                     const body = JSON.stringify({ stepTwo: true, email: values.username, token: response.data.token });
-                    AUTH.logout();
-                    AUTH.loginStepTwo(body);
+					AUTH.logout();
+					AUTH.loginStepTwo(body);
+					resetAttempts();
                     props.history.push('/');
                 })
                 .catch(e => {
+					incAttempts();
                     console.log("Erro: "+ e);
                 });
 			}
@@ -79,7 +91,11 @@ function Login(props) {
 
 							<Margin x={36} />
 
-							<ReCAPTCHA sitekey={captcha} onChange={onChangeCaptcha} />
+							{
+								showCaptcha ?
+									<ReCAPTCHA sitekey={captcha} onChange={onChangeCaptcha} /> 
+								: null
+							}
 
 							<Margin x={36} />
 							<CTA centered htmlType="submit">

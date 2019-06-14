@@ -2,6 +2,8 @@
 const TOKEN_KEY = "privacy-tools-auth-token";
 const USERNAME_KEY = "privacy-tools-name";
 const STEP_TWO = "privacy-tools-auth-stepTwo";
+const MAX_ATTEMPTS = 3;
+const ATTEMPTS_KEY = "pt-a";
 
 class Auth {
     
@@ -39,6 +41,27 @@ class Auth {
         return JSON.parse(localStorage.getItem(STEP_TWO));
     }
 
+    getAttempts() {
+        const attempts = localStorage.getItem(ATTEMPTS_KEY);
+        return attempts === null ? 0 : (parseInt(attempts) || 0);
+    }
+
+    setAttempts(value) {
+        localStorage.setItem(ATTEMPTS_KEY, value);
+    }
+
+    resetAttempts() {
+        this.setAttempts(0);
+    }
+
+    incAttempts() {
+        const attempts = this.getAttempts();
+        this.setAttempts(attempts + 1);
+    }
+
+    isMaxAttempts() {
+        return this.getAttempts() >= MAX_ATTEMPTS;
+    }
 }
 
 const AUTH = new Auth();
