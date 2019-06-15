@@ -58,11 +58,11 @@ function Footer() {
 				</Row>
 				<Margin x={24} />
 				<Row type="flex" justify="space-between">
-					<a href="/" style={{ fontSize: '12px', color: '#fff' }}>
+					<a href="https://www.grupomaven.com.br" style={{ fontSize: '12px', color: '#fff' }}>
 						{' '}
-						Uma empresa do
+						{t('footer.a.company.of')}
 						<img
-							src="http://www.trubr.com/wp-content/themes/maven/img/logo%20grupo%20maven.png"
+							src="//www.trubr.com/wp-content/themes/maven/img/logo%20grupo%20maven.png"
 							height={24}
 							style={{ marginLeft: '3px' }}
 							alt="Maven"

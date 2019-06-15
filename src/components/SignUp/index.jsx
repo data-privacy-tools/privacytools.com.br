@@ -66,7 +66,7 @@ function SignUp(props) {
 			<Main>
 				<StyledFormWrapper>
 					<div>
-						<H2>Create your account</H2>
+						<H2>{t('menu.itens.create')}</H2>
 						<p>Create an account to discuss, publish, and manage all of your projects.</p>
 						<Form onSubmit={handleSubmit}>
 							<Form.Item>
@@ -159,12 +159,12 @@ function SignUp(props) {
 							<LegalText centered>
 								<Checkbox onChange={termsOfService}>
 									Creating an account means you are okay with our{' '}
-									<a target="_blank" href="/terms">
-										Terms of Service
+									<a target="_blank" href="/terms-of-usage">
+									{t('terms-and-use.menu')}
 									</a>
 									,{' '}
-									<a target="_blank" href="/privacy">
-										Privacy Policy
+									<a target="_blank" href="/privacy-policy">
+										{t('footer.privacy.policy.menu')}
 									</a>
 								</Checkbox>
 							</LegalText>

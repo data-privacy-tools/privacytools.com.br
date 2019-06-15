@@ -7,8 +7,8 @@ function FooterMenu() {
 
 	return (
 		<StyledMenu>
-			<StyledMenuItem to="/terms-of-use">Terms of Use</StyledMenuItem>
-			<StyledMenuItem to="/privacy-policy">Privacy Policy</StyledMenuItem>
+			<StyledMenuItem to="/terms-of-use">{t('terms-and-use.menu')}</StyledMenuItem>
+			<StyledMenuItem to="/privacy-policy">{t('footer.privacy.policy.menu')}</StyledMenuItem>
 		</StyledMenu>
 	)
 }
