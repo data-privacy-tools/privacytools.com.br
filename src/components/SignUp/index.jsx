@@ -16,24 +16,26 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { captcha } from '../../config'
 
 import {apiInstance} from '../../api'
-import {sha256} from 'js-sha256'
 
 function SignUp(props) {
 	const { form } = props
 
-	const { t } = useTranslation()
+	const { t, i18n } = useTranslation();
 
-	const [confirmDirty, setConfirmDirty] = useState(false)
 	const [terms, setTerms] = useState(false)
-
-	const [autoCompleteResult, setAutoCompleteResult] = useState([])
 
 	const handleSubmit = e => {
 		e.preventDefault()
 
 		form.validateFields((err, values) => {
 			if (!err && terms) {
-				apiInstance().saveComapany( {email: values.email, password: sha256(values.password) } )
+				apiInstance().saveComapany( 
+					{	name: values.name, 
+						companyWebsite: values.companyWebsite, 
+						email: values.email,
+						cnpj: values.cnpj,
+						language: i18n.language || 'en'
+					} )
 					.then( (response) => {
 						props.history.push('/');
 					})
@@ -43,26 +45,6 @@ function SignUp(props) {
 
 			}
 		})
-	}
-
-	const compareToFirstPassword = (rule, value, callback) => {
-		if (value && value !== form.getFieldValue('password')) {
-			callback('Two passwords that you enter is inconsistent!')
-		} else {
-			callback()
-		}
-	}
-
-	const validateToNextPassword = (rule, value, callback) => {
-		if (value && confirmDirty) {
-			form.validateFields(['confirm'], { force: true })
-		}
-		callback()
-	}
-
-	const handleConfirmBlur = e => {
-		const value = e.target.value
-		setConfirmDirty(confirmDirty)
 	}
 
 	const onChangeCaptcha = captcha => props.form.setFieldsValue({ captcha })
@@ -102,62 +84,47 @@ function SignUp(props) {
 							</Form.Item>
 							<Margin x={12} />
 							<Form.Item>
-								{getFieldDecorator('username', {
-									rules: [{ required: true, message: 'Please input your username!' }],
+								{getFieldDecorator('name', {
+									rules: [{ required: true, message: 'Please input your company name!' }],
 								})(
 									<Input
 										size="large"
-										prefix={<Icon type="user" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
 										type="text"
-										placeholder="Username"
-									/>
-								)}
-							</Form.Item>
-							<Margin x={12} />
-							<Form.Item hasFeedback>
-								{getFieldDecorator('password', {
-									rules: [
-										{
-											required: true,
-											message: 'Please input your password!',
-										},
-										{
-											validator: validateToNextPassword,
-										},
-									],
-								})(
-									<Input.Password
-										size="large"
-										placeholder="Password"
-										prefix={<Icon type="lock" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
+										placeholder="Company Name"
 									/>
 								)}
 							</Form.Item>
 
-							{getFieldDecorator('captcha')(<Input type="hidden" />)}
-
 							<Margin x={12} />
-							<Form.Item hasFeedback>
-								{getFieldDecorator('confirm', {
-									rules: [
-										{
-											required: true,
-											message: 'Please confirm your password!',
-										},
-										{
-											validator: compareToFirstPassword,
-										},
-									],
+							<Form.Item>
+								{getFieldDecorator('companyWebsite', {
+									rules: [{ required: true, message: 'Please input your company web site!' }],
 								})(
-									<Input.Password
-										prefix={<Icon type="lock" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
-										placeholder="Confirm Password"
+									<Input
 										size="large"
+										type="text"
+										placeholder="Company Website"
 									/>
 								)}
 							</Form.Item>
+
+							<Margin x={12} />
+							<Form.Item>
+								{getFieldDecorator('cnpj', {
+									rules: [{ required: true, message: 'Please input your company number!' }],
+								})(
+									<Input
+										size="large"
+										type="text"
+										placeholder="Company number"
+									/>
+								)}
+							</Form.Item>
+							
 
 							<Margin x={36} />
+
+							{getFieldDecorator('captcha')(<Input type="hidden" />)}
 
 							<ReCAPTCHA sitekey={captcha} onChange={onChangeCaptcha} />
 
