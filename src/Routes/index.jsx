@@ -23,7 +23,7 @@ function AppRouter(props) {
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/login/" exact  component={() => { 
-									window.location.href = 'http://localhost:3001/login'; 
+									window.location.href = 'https://beta.privacytools.com.br/login'; 
 									return null;
 								}} />
 					<Route path="/signUp/" exact component={SignUp} />
