@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const baseURL = "https://beta.privacytools.com.br/api";
+//const baseURL = "http://localhost:8080/api";
 
 const api = axios.create({
     baseURL: baseURL,
@@ -24,7 +25,7 @@ class Api {
         return api.put("/reset-password", bodyRequest);
     }
 
-    saveComapany = (bodyRequest) => {
+    saveCompany = (bodyRequest) => {
         return api.request({method: 'post', url: '/company/new', data: bodyRequest});
     }
 }

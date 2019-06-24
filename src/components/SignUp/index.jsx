@@ -29,7 +29,7 @@ function SignUp(props) {
 
 		form.validateFields((err, values) => {
 			if (!err && terms) {
-				apiInstance().saveComapany( 
+				apiInstance().saveCompany( 
 					{	name: values.name, 
 						companyWebsite: values.companyWebsite, 
 						email: values.email,
@@ -37,10 +37,17 @@ function SignUp(props) {
 						language: i18n.language || 'en'
 					} )
 					.then( (response) => {
+						alert('Cadastro realizado com sucesso!');
 						props.history.push('/');
 					})
 					.catch(e => {
-						console.log("Erro: "+ e);
+						console.log("Erro: ");
+						console.log(e);
+						if (e.response.status === 400) {
+							alert("Empresa já cadastrada.");
+						} else {
+							alert("Erro: "+ e.message);
+						}
 					});
 
 			}
