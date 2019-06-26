@@ -1,6 +1,9 @@
 export default {
     en: {
         translations: {
+            'new.company.success': 'Company registered',
+            'new.company.error.exists': 'Company already exists',
+
             'menu.itens.email':'Contact',
             'menu.itens.login':'Log in',
             'menu.itens.create':'Create your account',            

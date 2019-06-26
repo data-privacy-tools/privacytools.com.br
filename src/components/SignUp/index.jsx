@@ -37,16 +37,16 @@ function SignUp(props) {
 						language: i18n.language || 'en'
 					} )
 					.then( (response) => {
-						alert('Cadastro realizado com sucesso!');
+						alert(t('new.company.success'));
 						props.history.push('/');
 					})
 					.catch(e => {
 						console.log("Erro: ");
 						console.log(e);
 						if (e.response.status === 400) {
-							alert("Empresa já cadastrada.");
+							alert(t('new.company.error.exists'));
 						} else {
-							alert("Erro: "+ e.message);
+							alert("Error: "+ e.message);
 						}
 					});
 

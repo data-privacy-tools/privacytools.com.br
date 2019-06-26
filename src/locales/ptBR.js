@@ -1,6 +1,9 @@
 export default {
     pt_BR: {
         translations: {
+            'new.company.success': 'Empresa cadastrada',
+            'new.company.error.exists': 'Empresa já existe',
+
             'menu.itens.email':'Contato',
             'menu.itens.login':'Entrar',
             'menu.itens.create':'Crie sua conta',
