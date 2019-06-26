@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Home = lazy(() => import('../components/Home'))
 const Login = lazy(() => import('../components/Login'))
@@ -17,13 +18,14 @@ const EmailErro = lazy(() => import('../components/EmailErro'))
 const TermsOfUse = lazy(() => import('../components/TermsOfUse'))
 
 function AppRouter(props) {
+	const { i18n } = useTranslation();
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
 			<Suspense fallback={<div />}>
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/login/" exact  component={() => { 
-									window.location.href = 'https://beta.privacytools.com.br/login'; 
+									window.location.href = `${process.env.REACT_APP_DASHBOARD_BASE_URL}/login?lang=${i18n.language}`; 
 									return null;
 								}} />
 					<Route path="/signUp/" exact component={SignUp} />
