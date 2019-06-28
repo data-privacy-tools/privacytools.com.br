@@ -3,6 +3,7 @@ export default {
         translations: {
             'new.company.success': 'Company registered',
             'new.company.error.exists': 'Company already exists',
+            'action.saving.messge': 'Company registration...',
 
             'menu.itens.email':'Contact',
             'menu.itens.login':'Log in',

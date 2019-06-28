@@ -3,6 +3,7 @@ export default {
         translations: {
             'new.company.success': 'Empresa cadastrada',
             'new.company.error.exists': 'Empresa já existe',
+            'action.saving.messge': 'Cadastrando empresa...',
 
             'menu.itens.email':'Contato',
             'menu.itens.login':'Entrar',

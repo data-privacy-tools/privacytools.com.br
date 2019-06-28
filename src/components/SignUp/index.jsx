@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Header from '../Header'
 import Footer from '../Footer'
-import { Form, Icon, Input, Checkbox } from 'antd'
+import { Form, Icon, Input, Checkbox, message, Modal } from 'antd'
+import 'antd/dist/antd.css';
 import Margin from '../Margin'
 import { CTA } from '../Button'
 import { theme } from '../../styles'
@@ -26,6 +27,8 @@ function SignUp(props) {
 	const [captchaValue, setCaptchaValue] = useState('');
 	const [disabledButton, setDisabledButton] = useState(true);
 
+	const { success, error } = Modal;
+
 	const handleSubmit = e => {
 		e.preventDefault()
 
@@ -35,6 +38,7 @@ function SignUp(props) {
 		
 		form.validateFields((err, values) => {
 			if (!err) {
+				const hide = message.loading(t('action.saving.messge'), 0);
 				apiInstance().saveCompany( 
 					{	name: values.name, 
 						companyWebsite: values.companyWebsite, 
@@ -43,16 +47,18 @@ function SignUp(props) {
 						language: i18n.language || 'en'
 					} )
 					.then( (response) => {
-						alert(t('new.company.success'));
+						success({content: t('new.company.success')});
+						hide();
 						props.history.push('/');
 					})
 					.catch(e => {
+						hide();
 						console.log("Erro: ");
 						console.log(e);
 						if (e.response.status === 400) {
-							alert(t('new.company.error.exists'));
+							error({content: t('new.company.error.exists')});
 						} else {
-							alert("Error: "+ e.message);
+							error({content: "Error: "+ e.message});
 						}
 					});
 
