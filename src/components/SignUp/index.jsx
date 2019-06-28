@@ -23,12 +23,18 @@ function SignUp(props) {
 	const { t, i18n } = useTranslation();
 
 	const [terms, setTerms] = useState(false)
+	const [captchaValue, setCaptchaValue] = useState('');
+	const [disabledButton, setDisabledButton] = useState(true);
 
 	const handleSubmit = e => {
 		e.preventDefault()
 
+		if (disabledButton) {  //não está válido 
+			return;
+		}
+		
 		form.validateFields((err, values) => {
-			if (!err && terms) {
+			if (!err) {
 				apiInstance().saveCompany( 
 					{	name: values.name, 
 						companyWebsite: values.companyWebsite, 
@@ -54,9 +60,23 @@ function SignUp(props) {
 		})
 	}
 
-	const onChangeCaptcha = captcha => props.form.setFieldsValue({ captcha })
+	const validateCaptchaAndTerms = (_captcha, _terms) => {
+		
+		setDisabledButton(! (_terms && _captcha) );
+	}
 
-	const termsOfService = ({ target }) => setTerms(target.checked)
+	const onChangeCaptcha = _captcha => {
+		setCaptchaValue(_captcha);
+
+		//pois eh, aqui tbem não consegui pegar o valor do terms que esta no state
+		const _terms = document.getElementById("terms").checked;
+		validateCaptchaAndTerms(_captcha, _terms);
+	}
+
+	const termsOfService = ({ target }) => {
+		setTerms(target.checked)
+		validateCaptchaAndTerms(captchaValue, target.checked);
+	}
 
 	const { getFieldDecorator } = form
 	return (
@@ -67,7 +87,7 @@ function SignUp(props) {
 					<div>
 						<H2>Create your account</H2>
 						<p>Create an account to discuss, publish, and manage all of your projects.</p>
-						<Form onSubmit={handleSubmit}>
+						<Form onSubmit={handleSubmit} >
 							<Form.Item>
 								{getFieldDecorator('email', {
 									rules: [
@@ -78,10 +98,11 @@ function SignUp(props) {
 										{
 											required: true,
 											message: 'Please input your E-mail!',
-										},
+										}
 									],
 								})(
 									<Input
+										name="email"
 										size="large"
 										prefix={<Icon type="mail" style={{ color: rgba(theme.secondaryColor, 0.3) }} />}
 										type="email"
@@ -92,7 +113,10 @@ function SignUp(props) {
 							<Margin x={12} />
 							<Form.Item>
 								{getFieldDecorator('name', {
-									rules: [{ required: true, message: 'Please input your company name!' }],
+									rules: [
+										{ required: true, message: 'Please input your company name!' },
+										{ min: 3, message: '3 characters minimum lenght' },
+									],
 								})(
 									<Input
 										size="large"
@@ -105,7 +129,10 @@ function SignUp(props) {
 							<Margin x={12} />
 							<Form.Item>
 								{getFieldDecorator('companyWebsite', {
-									rules: [{ required: true, message: 'Please input your company web site!' }],
+									rules: [
+											{ required: true, message: 'Please input your company web site!' },
+											{ min: 3, message: '3 characters minimum lenght' },
+										],
 								})(
 									<Input
 										size="large"
@@ -118,7 +145,10 @@ function SignUp(props) {
 							<Margin x={12} />
 							<Form.Item>
 								{getFieldDecorator('cnpj', {
-									rules: [{ required: true, message: 'Please input your company number!' }],
+									rules: [
+										{ required: true, message: 'Please input your company number!' },
+										{ min: 3, message: '3 characters minimum lenght' },
+									],
 								})(
 									<Input
 										size="large"
@@ -131,17 +161,17 @@ function SignUp(props) {
 
 							<Margin x={36} />
 
-							{getFieldDecorator('captcha')(<Input type="hidden" />)}
+							
 
 							<ReCAPTCHA sitekey={captcha} onChange={onChangeCaptcha} />
 
 							<Margin x={36} />
-							<CTA centered htmlType="submit">
+							<CTA centered htmlType="submit" disabled={disabledButton}>
 								Create your account
 							</CTA>
 							<Margin x={24} />
 							<LegalText centered>
-								<Checkbox onChange={termsOfService}>
+								<Checkbox onChange={termsOfService} checked={terms} name="terms" id="terms">
 									Creating an account means you are okay with our{' '}
 									<a target="_blank" href="/terms">
 										Terms of Service

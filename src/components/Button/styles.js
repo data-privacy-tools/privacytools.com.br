@@ -94,6 +94,13 @@ export const StyledCTA = styled(Button)`
       opacity: 0;
     }
   }
+  &:disabled {
+    opacity: 0.5;
+    transform: none;
+    &:after{
+      opacity: 0;
+    }
+  }
 `
 
 export const StyledPrimaryNegative = styled(StyledCTA)`
