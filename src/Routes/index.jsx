@@ -28,7 +28,10 @@ function AppRouter(props) {
 									window.location.href = `${process.env.REACT_APP_DASHBOARD_BASE_URL}/login?lang=${i18n.language}`; 
 									return null;
 								}} />
-					<Route path="/signUp/" exact component={SignUp} />
+					<Route path="/signUp/" exact component={() => { 
+									window.location.href = `${process.env.REACT_APP_DASHBOARD_BASE_URL}/signup?lang=${i18n.language}`; 
+									return null;
+								}} />
 					<Route path="/confirm-your-email/" exact component={ConfirmEmail} />
 					<Route path="/email-confirmed/" exact component={ConfirmedEmail} />
 					<Route path="/proof-on-concession/" exact component={Proof} />
